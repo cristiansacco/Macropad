@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Homepage extends JFrame {
+public class Homepage extends JPanel {
 
     // Lista di Buttons inseriti nella schermata homepage
     static List<JButton> buttonList = new ArrayList<>();
@@ -25,15 +25,58 @@ public class Homepage extends JFrame {
     JButton playPause = new JButton(Constants.playPause);
     JButton nextTrack = new JButton((Constants.nextTrack));
 
+    Container c = null;
+
     public Homepage() {
 
-        super("Homepage");
+        super(new GridLayout(Constants.rows,Constants.columns));
 
-        // Create new buttons and add them in a list
-        buttonSetup();
+        add(intellij);
+        add(spotify);
+        add(muteUnmute);
+        add(playPause);
+        add(nextTrack);
+        add(new JButton("Prova"));
+        add(new JButton("Prova"));
+        add(new JButton("Prova"));
+        add(new JButton("Prova"));
+        add(new JButton("Prova"));
+        add(new JButton("Prova"));
+        add(new JButton("Prova"));
 
-        // all frame settings, buttons' style
-        frameSetup();
+        setBackground(Color.BLACK);
+        setVisible(true);
+    }
+
+//    private void frameSetup() {
+//
+//        Container c = this.getContentPane();
+//        c.setLayout(new GridLayout(Constants.rows, Constants.columns));
+//
+//        for (JButton temp : buttonList) {
+//            temp.setOpaque(true);
+//
+//            temp.setBorder(BorderFactory.createEtchedBorder(Color.BLACK,Color.GRAY));
+//            temp.setBackground(Color.DARK_GRAY);
+//            temp.setForeground(Color.LIGHT_GRAY);
+//
+//            temp.setFont(new Font("Comic Sans MS", Font.ITALIC, 20));
+//            Icon icon = new ImageIcon("src/png/"+ temp.getText()+".png");
+//            temp.setIcon(icon);
+//            temp.setText("");
+//            c.add(temp);
+//        }
+//
+//        c.setBackground(Color.DARK_GRAY);
+//        setSize(800, 480);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setVisible(true);
+//        setLocationRelativeTo(null);
+//    }
+
+    private static void addButton(JButton temp) {
+        buttonList.add(temp);
+        buttonSize--;
     }
 
     private void buttonSetup() {
@@ -50,7 +93,10 @@ public class Homepage extends JFrame {
         intellij.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ScriptLauncher.scriptLauncher(IntellijScripts.activate_intelliJ);
+//                ScriptLauncher.scriptLauncher(IntellijScripts.activate_intelliJ);
+                    Intellij intellijFrame = new Intellij();
+
+                    setVisible(false);
             }
         });
 
@@ -87,40 +133,6 @@ public class Homepage extends JFrame {
         }
 
     }
-
-    private void frameSetup() {
-
-        Container c = this.getContentPane();
-        c.setLayout(new GridLayout(Constants.rows, Constants.columns));
-
-        for (JButton temp : buttonList) {
-            temp.setOpaque(true);
-
-            temp.setBorder(BorderFactory.createEtchedBorder(Color.BLACK,Color.GRAY));
-            temp.setBackground(Color.DARK_GRAY);
-            temp.setForeground(Color.LIGHT_GRAY);
-
-            temp.setFont(new Font("Comic Sans MS", Font.ITALIC, 20));
-            Icon icon = new ImageIcon("src/png/"+ temp.getText()+".png");
-            temp.setIcon(icon);
-            temp.setText("");
-            c.add(temp);
-        }
-
-        c.setBackground(Color.DARK_GRAY);
-//        setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        setUndecorated(true);
-
-        setSize(800, 480);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-    }
-
-    private static void addButton(JButton temp) {
-        buttonList.add(temp);
-        buttonSize--;
-    }
-
 
 
 }
