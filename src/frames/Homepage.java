@@ -96,15 +96,14 @@ public class Homepage extends JFrame {
         for (JButton temp : buttonList) {
             temp.setOpaque(true);
 
-            temp.setBorder(BorderFactory.createEtchedBorder(Color.BLACK,Color.WHITE));
+            temp.setBorder(BorderFactory.createEtchedBorder(Color.BLACK,Color.GRAY));
             temp.setBackground(Color.DARK_GRAY);
             temp.setForeground(Color.LIGHT_GRAY);
 
-//            temp.setBorder(BorderFactory.createBevelBorder(2,Color.WHITE,Color.LIGHT_GRAY));
             temp.setFont(new Font("Comic Sans MS", Font.ITALIC, 20));
             Icon icon = new ImageIcon("src/png/"+ temp.getText()+".png");
             temp.setIcon(icon);
-            // temp.setText("");
+            temp.setText("");
             c.add(temp);
         }
 

@@ -11,9 +11,9 @@ public class Constants {
     public final static String app_spotify = "Spotify";
 
     // System
-    public final static String muteUnmute = "Mute/Unmute";
+    public final static String muteUnmute = "MuteUnmute";
 
-    public final static String playPause = "Play/Pause";
+    public final static String playPause = "PlayPause";
 
     public final static String nextTrack = "Next";
 
