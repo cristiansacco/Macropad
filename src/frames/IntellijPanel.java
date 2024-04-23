@@ -11,6 +11,7 @@ public class IntellijPanel extends JPanel {
     private CardLayout cardLayout;
     private int buttonSize = Constants.rows * Constants.columns;
     JButton runButton = buttonBuilder(Constants.intellij_run);
+    JButton backButton = buttonBuilder(Constants.back);
 
     public IntellijPanel(CardLayout cardLayout){
 
@@ -25,7 +26,7 @@ public class IntellijPanel extends JPanel {
         for(int i = 0;i<buttonSize;i++){
             add(buttonBuilder(""));
         }
-
+        add(backButton);
         runButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,6 +38,12 @@ public class IntellijPanel extends JPanel {
             }
         });
 
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(getParent(),Constants.homepage);
+            }
+        });
 
 
     }

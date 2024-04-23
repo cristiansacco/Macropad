@@ -28,14 +28,14 @@ public class HomepagePanel extends JPanel {
 
         add(intellij);
         add(spotify);
-        add(muteUnmute);
-        add(playPause);
-        add(nextTrack);
+
 
         for(int i = 0;i<buttonSize;i++){
             add(buttonBuilder(""));
         }
-
+        add(muteUnmute);
+        add(playPause);
+        add(nextTrack);
         intellij.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

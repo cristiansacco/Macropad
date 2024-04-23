@@ -8,6 +8,8 @@ public class Constants {
     public final static int pixelHeight = 480;
     public final static int pixelWidth = 800;
     public final static String homepage = "Homepage";
+
+    public final static String back = "Back";
     public final static String muteUnmute = "MuteUnmute";
 
     // Apps
