@@ -1,6 +1,6 @@
 package utils.scripts;
 
-public class SpotifyScripts {
+public class ScriptsSpotify {
 
     public final static String activate_spotify = "activate application \"Spotify\"";
 
