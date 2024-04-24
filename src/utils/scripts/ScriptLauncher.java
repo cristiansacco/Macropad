@@ -15,7 +15,7 @@ public class ScriptLauncher {
         try {
             ProcessBuilder pb = new ProcessBuilder("osascript","-e",command);
             pb.directory(new File("/usr/bin"));
-            System.out.println(command);
+//            System.out.println(command);
             StringBuffer output = new StringBuffer();
             Process p = pb.start();
             p.waitFor();
