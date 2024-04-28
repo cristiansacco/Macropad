@@ -1,6 +1,4 @@
-package utils.scripts;
-
-import utils.scripts.Scripts;
+package scripts;
 
 import java.io.BufferedReader;
 import java.io.File;

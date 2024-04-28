@@ -1,0 +1,3 @@
+Info:
+
+search "osascript" for applescripts to integrate

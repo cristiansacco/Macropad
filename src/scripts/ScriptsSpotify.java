@@ -1,4 +1,4 @@
-package utils.scripts;
+package scripts;
 
 public class ScriptsSpotify {
 
