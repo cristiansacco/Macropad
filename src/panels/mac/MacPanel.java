@@ -1,11 +1,13 @@
 package panels.mac;
 
+import scripts.ScriptsApps;
 import utils.Constants;
-import utils.KeyboardShortcuts;
 import scripts.ScriptLauncher;
 import scripts.Scripts;
 import scripts.ScriptsSpotify;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,73 +25,83 @@ public class MacPanel extends JPanel {
         setLayout(new GridLayout(Constants.rows_standard,Constants.columns_standard));
         setBackground(Color.BLACK);
 
-        JButton intellij = buttonBuilder(Constants.app_intellij);
-        buttonSize--;
-        JButton spotify = buttonBuilder(Constants.app_spotify);
-        buttonSize--;
+        JButton intellijButton = buttonBuilder(Constants.app_intellij);
+        JButton spotifyButton = buttonBuilder(Constants.app_spotify);
+        JButton braveButton = buttonBuilder(Constants.app_brave);
         JButton muteUnmuteButton = buttonBuilder(Constants.muteUnmute);
-        buttonSize--;
         JButton playPauseButton = buttonBuilder(Constants.playPause);
-        buttonSize--;
         JButton nextTrackButton = buttonBuilder(Constants.nextTrack);
-        buttonSize--;
+        JButton previousTrackButton = buttonBuilder(Constants.previousTrack);
         JButton backButton = buttonBuilder(Constants.back);
-        buttonSize--;
         JButton copyButton = buttonBuilder(Constants.copy);
-        buttonSize--;
+        JSlider volumeSlider = new JSlider(0,100);
+        //first row: apps
+        add(intellijButton);
+        add(spotifyButton);
+        add(braveButton);
+        add(buttonBuilder(""));
+        add(buttonBuilder(""));
 
-        //add apps
-        add(intellij);
-        add(spotify);
-
-        // empty buttons
-        for(int i = 0;i<buttonSize;i++){
-            add(buttonBuilder(""));
-        }
-        add(copyButton);
+        // second row: music controls
         add(muteUnmuteButton);
+        add(previousTrackButton);
         add(playPauseButton);
         add(nextTrackButton);
-        add(backButton);
+        add(buttonBuilder(""));
 
-        intellij.addActionListener(new ActionListener() {
+        // third row: system
+        add(buttonBuilder(""));
+        add(buttonBuilder(""));
+        add(buttonBuilder(""));
+        add(buttonBuilder(""));
+        add(backButton);
+        add(volumeSlider);
+
+
+        intellijButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(getParent(),Constants.app_intellij);
             }
         });
 
-        spotify.addActionListener(new ActionListener() {
+        spotifyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ScriptLauncher.scriptLauncher(ScriptsSpotify.activate_spotify);
+                ScriptLauncher.launchScript(ScriptsApps.activate_spotify);
             }
         });
-
-        copyButton.addActionListener(new ActionListener() {
+        braveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ScriptLauncher.scriptLauncher(Scripts.copy);
+                ScriptLauncher.launchScript(ScriptsApps.activate_brave);
             }
         });
         muteUnmuteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ScriptLauncher.scriptLauncher(Scripts.mute_unmute);
+                ScriptLauncher.launchScript(Scripts.mute_unmute);
+            }
+        });
+
+        previousTrackButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ScriptLauncher.launchScript(ScriptsSpotify.spotify_previousTrack);
             }
         });
 
         playPauseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ScriptLauncher.scriptLauncher(ScriptsSpotify.spotify_play_pause);
+                ScriptLauncher.launchScript(ScriptsSpotify.spotify_play_pause);
             }
         });
 
         nextTrackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ScriptLauncher.scriptLauncher(ScriptsSpotify.spotify_nextTrack);
+                ScriptLauncher.launchScript(ScriptsSpotify.spotify_nextTrack);
             }
         });
 
@@ -97,6 +109,13 @@ public class MacPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(getParent(),Constants.homepage);
+            }
+        });
+
+        volumeSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                ScriptLauncher.launchScript(Scripts.set_volume.concat(String.valueOf(volumeSlider.getValue())));
             }
         });
 

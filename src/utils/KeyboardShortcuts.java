@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class KeyboardShortcuts {
-        public static Robot robot = null;
+        public static Robot robot;
     public static void altTab() {
         try{
             robot = new Robot();

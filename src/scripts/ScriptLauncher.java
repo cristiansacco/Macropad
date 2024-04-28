@@ -8,7 +8,7 @@ public class ScriptLauncher {
 
     // scriptLauncher(Scripts.PLAY_PAUSE.getCommand());
 
-    public static void scriptLauncher(String command){
+    public static void launchScript(String command){
 
         try {
             ProcessBuilder pb = new ProcessBuilder("osascript","-e",command);
@@ -36,7 +36,7 @@ public class ScriptLauncher {
         //proporzione: il massimo e' 7.0f
         float value = (vol*7.0f)/100;
         String command = Scripts.set_volume + value;
-        scriptLauncher(command);
+        launchScript(command);
     }
 
 }

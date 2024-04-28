@@ -10,21 +10,10 @@ public class Scripts {
             "\tset volume without output muted\n" +
             "end if";
 
-    public final static String set_volume = "set volume ";
 
-    public final static String copy = "on run\n" +
-            "    tell application \"System Events\"\n" +
-            "        keystroke \"c\" using command down\n" +
-            "    end tell\n" +
-            "\n" +
-            "    tell application \"Finder\"\n" +
-            "        set x to the clipboard\n" +
-            "        set x to \"Today \" & x & \" a sunny day\"\n" +
-            "        set the clipboard to x\n" +
-            "    end tell\n" +
-            "\n" +
-            "    tell application \"System Events\"\n" +
-            "        keystroke \"v\" using command down\n" +
-            "    end tell\n" +
-            "end run";
+    // example: "set volume output volume 20"
+    public final static String set_volume = "set volume output volume ";
+
+
+
 }

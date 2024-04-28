@@ -7,7 +7,7 @@ public class Constants {
     public final static int rows_homepage = 1;
     public final static int columns_homepage = 2;
     public final static int rows_standard = 3;
-    public final static int columns_standard = 4;
+    public final static int columns_standard = 5;
     public final static int pixel_height = 480;
     public final static int pixel_width = 800;
 
@@ -30,11 +30,13 @@ public class Constants {
     // Apps
     public final static String app_intellij= "Intellij";
     public final static String app_spotify = "Spotify";
+    public final static String app_brave = "Brave";
 
     // ---------------------------------------------------
     // Spotify
     public final static String playPause = "PlayPause";
     public final static String nextTrack = "Next";
+    public final static String previousTrack = "Previous";
 
     // ---------------------------------------------------
     // Intellij

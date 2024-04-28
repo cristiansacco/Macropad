@@ -1,5 +1,6 @@
 package panels.mac;
 
+import scripts.ScriptsApps;
 import utils.Constants;
 import utils.KeyboardShortcuts;
 import scripts.ScriptLauncher;
@@ -41,7 +42,7 @@ public class IntellijPanel extends JPanel {
         runButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    ScriptLauncher.scriptLauncher(ScriptsIntellij.activate_intelliJ);
+                    ScriptLauncher.launchScript(ScriptsApps.activate_intelliJ);
                     KeyboardShortcuts.intellijRun();
             }
         });
