@@ -6,8 +6,6 @@ import scripts.ScriptLauncher;
 import scripts.Scripts;
 import scripts.ScriptsSpotify;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,7 +32,7 @@ public class MacPanel extends JPanel {
         JButton previousTrackButton = buttonBuilder(Constants.previousTrack);
         JButton backButton = buttonBuilder(Constants.back);
         JButton copyButton = buttonBuilder(Constants.copy);
-        JSlider volumeSlider = new JSlider(0,100);
+
         //first row: apps
         add(intellijButton);
         add(spotifyButton);
@@ -55,7 +53,7 @@ public class MacPanel extends JPanel {
         add(buttonBuilder(""));
         add(buttonBuilder(""));
         add(backButton);
-        add(volumeSlider);
+
 
 
         intellijButton.addActionListener(new ActionListener() {
@@ -112,12 +110,6 @@ public class MacPanel extends JPanel {
             }
         });
 
-        volumeSlider.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                ScriptLauncher.launchScript(Scripts.set_volume.concat(String.valueOf(volumeSlider.getValue())));
-            }
-        });
 
     }
 

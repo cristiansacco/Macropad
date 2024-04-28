@@ -32,11 +32,4 @@ public class ScriptLauncher {
         }
     }
 
-    public void setMasterVolume(int vol) {
-        //proporzione: il massimo e' 7.0f
-        float value = (vol*7.0f)/100;
-        String command = Scripts.set_volume + value;
-        launchScript(command);
-    }
-
 }

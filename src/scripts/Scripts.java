@@ -12,8 +12,14 @@ public class Scripts {
 
 
     // example: "set volume output volume 20"
-    public final static String set_volume = "set volume output volume ";
+    public final static String increase_volume_by_5 =
+            "set vol to output volume of (get volume settings)\n" +
+            "set vol to vol + 5\n" +
+            "set volume output volume vol";
 
-
-
+    public final static String decrease_volume_by_5 =
+            "set vol to output volume of (get volume settings)\n" +
+                    "set vol to vol - 5\n" +
+                    "set volume output volume vol";
+    
 }
