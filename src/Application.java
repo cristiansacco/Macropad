@@ -11,15 +11,6 @@ public class Application {
 
     public static void main(String[] args){
 
-        /*
-        Structure:
-            - Jframe framne
-                - JPanel cardPanel
-                    - JPanel homepage
-                        - JPanel macOS
-                        - JPanel windowsOS
-         */
-
         JFrame frame = new JFrame("Dashboard");
 
         CardLayout cardLayout = new CardLayout();
@@ -39,6 +30,7 @@ public class Application {
         frame.add(cardPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(Constants.pixel_width, Constants.pixel_height);
+        // frame.setExtendedState(Frame.MAXIMIZED_BOTH);
         frame.setVisible(true);
 
         cardLayout.show(cardPanel,Constants.homepage);
