@@ -3,7 +3,7 @@ package utils;
 public class Constants {
 
     // ---------------------------------------------------
-    // System: DIMENSIONS
+    // System: Dimensions
     public final static int rows_homepage = 1;
     public final static int columns_homepage = 2;
     public final static int rows_standard = 3;
@@ -17,7 +17,11 @@ public class Constants {
     public final static String back = "Back";
     public final static String muteUnmute = "MuteUnmute";
 
-    // Keyboard
+    public final static String increaseVolume = "IncreaseVolume";
+    public final static String decreaseVolume = "DecreaseVolume";
+    public final static String volumeStep = "10";
+
+    // System: Keyboard shortcuts
     public final static String altTab = "altTab";
     public final static String copy = "Copy";
 

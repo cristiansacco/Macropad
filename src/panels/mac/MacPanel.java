@@ -26,12 +26,15 @@ public class MacPanel extends JPanel {
         JButton intellijButton = buttonBuilder(Constants.app_intellij);
         JButton spotifyButton = buttonBuilder(Constants.app_spotify);
         JButton braveButton = buttonBuilder(Constants.app_brave);
-        JButton muteUnmuteButton = buttonBuilder(Constants.muteUnmute);
+
+        JButton previousTrackButton = buttonBuilder(Constants.previousTrack);
         JButton playPauseButton = buttonBuilder(Constants.playPause);
         JButton nextTrackButton = buttonBuilder(Constants.nextTrack);
-        JButton previousTrackButton = buttonBuilder(Constants.previousTrack);
+
+        JButton muteUnmuteButton = buttonBuilder(Constants.muteUnmute);
+        JButton decreaseVolumeButton = buttonBuilder(Constants.decreaseVolume);
+        JButton increaseVolumeButton = buttonBuilder(Constants.increaseVolume);
         JButton backButton = buttonBuilder(Constants.back);
-        JButton copyButton = buttonBuilder(Constants.copy);
 
         //first row: apps
         add(intellijButton);
@@ -41,16 +44,16 @@ public class MacPanel extends JPanel {
         add(buttonBuilder(""));
 
         // second row: music controls
-        add(muteUnmuteButton);
         add(previousTrackButton);
         add(playPauseButton);
         add(nextTrackButton);
         add(buttonBuilder(""));
+        add(buttonBuilder(""));
 
         // third row: system
-        add(buttonBuilder(""));
-        add(buttonBuilder(""));
-        add(buttonBuilder(""));
+        add(decreaseVolumeButton);
+        add(increaseVolumeButton);
+        add(muteUnmuteButton);
         add(buttonBuilder(""));
         add(backButton);
 
@@ -103,6 +106,19 @@ public class MacPanel extends JPanel {
             }
         });
 
+        decreaseVolumeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ScriptLauncher.launchScript(Scripts.decrease_volume_by_5);
+            }
+        });
+
+        increaseVolumeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ScriptLauncher.launchScript(Scripts.increase_volume_by_5);
+            }
+        });
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
