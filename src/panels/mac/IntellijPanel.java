@@ -5,6 +5,7 @@ import utils.Constants;
 import utils.KeyboardShortcuts;
 import scripts.ScriptLauncher;
 import scripts.ScriptsIntellij;
+import utils.Utils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +23,6 @@ public class IntellijPanel extends JPanel {
         this.cardLayout = cardLayout;
         setLayout(new GridLayout(Constants.rows_standard,Constants.columns_standard));
         setBackground(Color.BLACK);
-
         JButton runButton = buttonBuilder(Constants.intellij_run);
         buttonSize--;
         JButton altTabButton = buttonBuilder(Constants.altTab);
